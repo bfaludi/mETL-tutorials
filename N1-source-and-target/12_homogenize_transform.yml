@@ -1,0 +1,21 @@
+source:
+  source: JSON
+  resource: output.json
+  fields:
+    - name: Country Code
+      map: country_code
+    - name: Type
+      map: type
+    - name: Gender
+      map: gender
+    - name: Name
+      map: name
+    - name: Search Name
+      map: name
+      transforms:
+        - transform: LowerCase
+        - transform: Homogenize
+
+target:
+  type: FixedWidthText
+  resource: output.txt

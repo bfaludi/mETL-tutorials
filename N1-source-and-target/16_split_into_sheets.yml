@@ -1,0 +1,22 @@
+source:
+  source: Database
+  url: postgresql://metl:metl@localhost:5432/metl
+  resource: material/query.sql
+  fields:
+    - name: Country Code
+      map: country_code
+    - name: Name
+      map: name
+    - name: Type
+      map: type
+    - name: Gender
+      map: gender
+    - name: Population
+      map: population
+      type: Integer
+
+target:
+  type: XLS
+  resource: output.xls
+  sheetName: All
+  dinamicSheetField: Country Code

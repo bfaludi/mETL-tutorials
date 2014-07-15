@@ -1,0 +1,27 @@
+source:
+  source: JSON
+  rootIterator: response/venue
+  fields:
+    - name: id
+      map: id
+    - name: name
+      map: name
+    - name: phone
+      map: contact/phone
+    - name: address
+      map: location/address
+    - name: postal_code
+      map: location/postalCode
+    - name: city
+      map: location/city
+    - name: country
+      map: location/country
+    - name: like_count
+      map: likes/count
+    - name: category
+      map: categories/0/name
+
+target:
+  type: CSV
+  resource: venues.csv
+  appendFile: true

@@ -1,0 +1,25 @@
+source:
+  source: JSON
+  resource: source/multilevel-names.json
+  fields:
+    - name: country_code
+    - name: country
+    - name: name
+    - name: population
+      type: Integer
+
+    - name: names
+      type: List
+    - name: name_item
+      type: Complex
+
+manipulations:
+  - expand: ListExpander
+    listFieldName: names
+    expandedFieldName: name_item
+  - filter: DropField
+    fieldNames: names
+
+target:
+  type: CSV
+  resource: output.csv

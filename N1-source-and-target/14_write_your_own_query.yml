@@ -1,0 +1,28 @@
+source:
+  source: Database
+  url: postgresql://metl:metl@localhost:5432/metl
+  statement: |
+    SELECT
+        *
+    FROM
+        names
+    WHERE
+        type = 'firstname'
+    ;
+  fields:
+    - name: Country Code
+      map: country_code
+    - name: Name
+      map: name
+    - name: Type
+      map: type
+    - name: Gender
+      map: gender
+    - name: Population
+      map: population
+      type: Integer
+
+target:
+  type: XLS
+  resource: output.xls
+  sheetName: All

@@ -1,0 +1,18 @@
+source:
+  source: CSV
+  resource: source/names.csv
+  fields: 
+    - name: country_code
+      map: 0
+    - name: name
+      map: 1
+    - name: type
+      map: 2
+    - name: gender
+      map: 3
+    - name: population
+      map: 4
+
+target:
+  type: JSON
+  resource: output.json

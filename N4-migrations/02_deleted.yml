@@ -1,0 +1,4 @@
+target:
+  type: JSON
+  resource: output.json
+  flat: true

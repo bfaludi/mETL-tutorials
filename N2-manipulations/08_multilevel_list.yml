@@ -1,0 +1,12 @@
+source:
+  source: JSON
+  resource: source/multilevel-names.json
+  fields:
+    - name: country_code
+    - name: country
+    - name: names
+      type: List
+
+target:
+  type: CSV
+  resource: output.csv

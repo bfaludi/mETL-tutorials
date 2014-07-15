@@ -1,0 +1,23 @@
+source:
+  source: CSV
+  resource: source/names.csv
+  skipRows: 1
+  headerRow: 0
+  fields: 
+    - name: country_code
+    - name: name
+    - name: type
+    - name: gender
+    - name: population
+      type: Integer
+    - name: country_code_and_type
+
+manipulations:
+  - modifier: Set
+    fieldNames: country_code_and_type
+    value: '%(country_code)s - %(type)s'
+
+target:
+  type: XML
+  resource: output.xml
+  itemName: name

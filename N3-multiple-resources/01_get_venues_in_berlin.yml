@@ -1,0 +1,23 @@
+# - Open this page:
+# 	https://developer.foursquare.com/docs/explore#req=venues%2Ftrending%3Fll%3D40.7%2C-74
+#
+# - Copy your oauth token, e.g.: 3VHYKZDB4E5CAI4WZLBCEBTMBBILPTCAHIGTH1ON4SINN2EM
+# - Replace your token to the resource
+
+source:
+  source: JSON
+  resource: https://api.foursquare.com/v2/venues/trending?ll=52.507,13.426&l=100&radius=15000&oauth_token=3VHYKZDB4E5CAI4WZLBCEBTMBBILPTCAHIGTH1ON4SINN2EM&v=20140715
+  rootIterator: response/venues/!
+  fields:
+    - name: id
+      map: id
+    - name: name
+      map: name
+
+manipulations:
+  - modifier: material.DownloadVenue
+
+target:
+  type: JSON
+  resource: venues.json
+  compact: false

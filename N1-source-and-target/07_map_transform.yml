@@ -1,0 +1,17 @@
+base: 05_file_header.yml
+
+source:
+  fields: 
+    - name: country_code
+      transforms:
+        - transform: Map
+          values:
+            SK: Slovakia
+            HU: Hungary
+            CZ: Czech Republic
+            PL: Poland
+    - name: name
+    - name: type
+    - name: gender
+    - name: population
+      type: Integer

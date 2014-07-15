@@ -1,0 +1,19 @@
+source:
+  source: JSON
+  resource: output.json
+  fields:
+    - name: Country Code
+      map: country_code
+    - name: Type
+      map: type
+    - name: Gender
+      map: gender
+    - name: Name
+      map: name
+    - name: Population
+      map: population
+      type: Integer
+
+target:
+  type: FixedWidthText
+  resource: output.txt

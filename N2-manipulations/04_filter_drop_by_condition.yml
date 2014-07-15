@@ -1,0 +1,37 @@
+source:
+  source: CSV
+  resource: source/names.csv
+  skipRows: 1
+  headerRow: 0
+  fields: 
+    - name: country
+      map: country_code
+      transforms:
+        - transform: Map
+          values:
+            SK: Slovakia
+            HU: Hungary
+            CZ: Czech Republic
+            PL: Poland
+    - name: name
+    - name: type
+    - name: gender
+    - name: population
+      type: Integer
+    - name: country_and_type
+
+manipulations:
+  - modifier: Set
+    fieldNames: country_and_type
+    value: '%(country)s - %(type)s'
+  - filter: DropField
+    fieldNames:
+      - country
+      - type
+  - filter: DropByCondition
+    condition: IsEmpty
+    fieldNames: gender
+
+target:
+  type: FixedWidthText
+  resource: output.txt

@@ -1,0 +1,17 @@
+source:
+  source: CSV
+  resource: source/names.csv
+  skipRows: 1
+  headerRow: 0
+  fields: 
+    - name: country_code
+    - name: name
+    - name: type
+    - name: gender
+    - name: population
+      type: Integer
+
+target:
+  type: JSON
+  resource: output.json
+  compact: false

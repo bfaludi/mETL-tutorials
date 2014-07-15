@@ -1,0 +1,16 @@
+source:
+  source: JSON
+  fields:
+    - name: code
+      key: true
+    - name: language
+    - name: local_name
+    - name: currency
+    - name: english_name
+    - name: capital
+
+target:
+  type: Database
+  url: postgresql://metl:metl@localhost:5432/metl
+  table: country
+  createTable: true

@@ -1,0 +1,31 @@
+source:
+  source: JSON
+  resource: source/venue.json
+  rootIterator: response/venue
+  fields:
+    - name: id
+      map: id
+    - name: name
+      map: name
+    - name: phone
+      map: contact/phone
+      transforms:
+        - transform: material.formatPhoneNumber
+    - name: address
+      map: location/address
+    - name: postal_code
+      map: location/postalCode
+    - name: city
+      map: location/city
+    - name: country
+      map: location/country
+    - name: like_count
+      map: likes/count
+    - name: category
+      map: categories/*/name
+      type: List
+
+target:
+  type: JSON
+  resource: output.json
+  compact: false

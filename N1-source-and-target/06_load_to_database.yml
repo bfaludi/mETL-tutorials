@@ -1,0 +1,19 @@
+source:
+  source: CSV
+  resource: source/names.csv
+  skipRows: 1
+  headerRow: 0
+  fields: 
+    - name: country_code
+    - name: name
+    - name: type
+    - name: gender
+    - name: population
+      type: Integer
+
+target:
+  type: Database
+  url: postgresql://metl:metl@localhost:5432/metl
+  table: names
+  createTable: true
+  replaceTable: true
